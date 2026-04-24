@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="#1a2f5e"/>
+
+  <!-- Ballot box body -->
+  <rect x="96" y="240" width="320" height="208" rx="20" fill="#ffffff" opacity="0.95"/>
+
+  <!-- Ballot slot on top of box -->
+  <rect x="196" y="220" width="120" height="36" rx="10" fill="#f97316"/>
+
+  <!-- Ballot paper (being inserted) -->
+  <rect x="210" y="128" width="92" height="112" rx="8" fill="#ffffff"/>
+
+  <!-- Checkmark on ballot -->
+  <path
+    d="M238 188 L254 208 L282 168"
+    stroke="#f97316"
+    stroke-width="12"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+
+  <!-- Lines on ballot (simulating text) -->
+  <rect x="224" y="148" width="64" height="6" rx="3" fill="#e2e8f0"/>
+  <rect x="224" y="162" width="48" height="6" rx="3" fill="#e2e8f0"/>
+
+  <!-- "VOTE" text inside box -->
+  <text
+    x="256"
+    y="362"
+    text-anchor="middle"
+    font-family="Arial, sans-serif"
+    font-size="56"
+    font-weight="900"
+    letter-spacing="6"
+    fill="#1a2f5e"
+  >VOTE</text>
+
+  <!-- Star accents -->
+  <circle cx="140" cy="380" r="10" fill="#f97316" opacity="0.6"/>
+  <circle cx="372" cy="380" r="10" fill="#f97316" opacity="0.6"/>
+</svg>
