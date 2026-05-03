@@ -232,6 +232,7 @@ export default function TimelineView() {
     return (
       <article
         key={`${phase.id}-${isMobile ? 'mobile' : 'desktop'}`}
+        role="listitem"
         className={cn(
           'bg-white border rounded-2xl shadow-card transition-all',
           isActive ? 'border-orange animate-pulse' : 'border-slate-200',
@@ -415,12 +416,12 @@ export default function TimelineView() {
         <h2 className="text-lg font-bold text-navy mb-3">Timeline Overview</h2>
 
         <div className="hidden md:block overflow-x-auto pb-3" aria-label="Horizontal election timeline">
-          <div className="flex gap-4 min-w-max px-1">
+          <div className="flex gap-4 min-w-max px-1" role="list" aria-label="Election timeline phases">
             {phases.map((phase) => renderPhaseCard(phase, false))}
           </div>
         </div>
 
-        <div className="md:hidden space-y-4" aria-label="Vertical election timeline">
+        <div className="md:hidden space-y-4" aria-label="Vertical election timeline" role="list">
           {phases.map((phase) => renderPhaseCard(phase, true))}
         </div>
       </section>

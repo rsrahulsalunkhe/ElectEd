@@ -1,6 +1,8 @@
+import { usePageTitle } from '@/hooks/usePageTitle';
 import CompareTable from '@/features/compare/CompareTable';
 
 export default function ComparePage() {
+  usePageTitle('Compare Systems');
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
       <div className="mb-8">

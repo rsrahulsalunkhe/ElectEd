@@ -1,6 +1,8 @@
+import { usePageTitle } from '@/hooks/usePageTitle';
 import QuizContainer from '@/features/quiz/QuizContainer';
 
 export default function QuizPage() {
+  usePageTitle('Knowledge Quiz');
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       <div className="mb-8 text-center">

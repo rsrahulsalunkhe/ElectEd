@@ -216,7 +216,11 @@ export default function QuizContainer() {
     return (
       <div className="bg-white border border-slate-200 rounded-2xl p-6">
         <h2 className="text-3xl font-bold text-navy mb-2">Quiz Results</h2>
-        <p className="text-lg text-slate-700 mb-1">
+        <p
+          className="text-lg text-slate-700 mb-1"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
           Score: <strong>{score}</strong> out of <strong>{questions.length}</strong> correct
         </p>
         <p className="text-2xl font-bold text-orange mb-4">{performanceMessage}</p>
@@ -282,7 +286,7 @@ export default function QuizContainer() {
 
       <h2 className="text-2xl font-bold text-navy leading-snug mb-5">{currentQuestion.prompt}</h2>
 
-      <div className="space-y-3">
+      <div className="space-y-3" role="group" aria-label="Answer options">
         {currentQuestion.options.map((option, index) => {
           const selected = currentAnswer?.selectedIndex === index;
           const isCorrect = index === currentQuestion.correctIndex;
@@ -301,12 +305,22 @@ export default function QuizContainer() {
               key={option}
               onClick={() => handleOptionClick(index)}
               disabled={hasAnswered}
+              aria-pressed={hasAnswered ? selected : undefined}
+              aria-label={`Option ${String.fromCharCode(65 + index)}: ${option}${
+                hasAnswered
+                  ? isCorrect
+                    ? ' — Correct answer'
+                    : selected
+                    ? ' — Incorrect'
+                    : ''
+                  : ''
+              }`}
               className={cn(
                 'w-full text-left p-4 rounded-xl border-2 transition-all',
                 optionStyle
               )}
             >
-              <span className="font-semibold mr-2">{String.fromCharCode(65 + index)}.</span>
+              <span className="font-semibold mr-2" aria-hidden="true">{String.fromCharCode(65 + index)}.</span>
               {option}
             </button>
           );
@@ -314,7 +328,7 @@ export default function QuizContainer() {
       </div>
 
       {hasAnswered && (
-        <div className="mt-5">
+        <div className="mt-5" aria-live="assertive" aria-atomic="true">
           <div className="p-4 rounded-xl border border-slate-200 bg-slate-50">
             <p className="text-sm font-semibold text-navy mb-1">Explanation</p>
             <p className="text-sm text-slate-700">{currentQuestion.explanation}</p>

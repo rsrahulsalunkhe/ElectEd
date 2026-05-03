@@ -1,6 +1,8 @@
+import { usePageTitle } from '@/hooks/usePageTitle';
 import StepsList from '@/features/steps/StepsList';
 
 export default function StepsPage() {
+  usePageTitle('Voting Guide');
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       <section className="mb-8 text-center">

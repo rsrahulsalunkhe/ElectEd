@@ -1,6 +1,8 @@
+import { usePageTitle } from '@/hooks/usePageTitle';
 import GlossaryList from '@/features/glossary/GlossaryList';
 
 export default function GlossaryPage() {
+  usePageTitle('Election Glossary');
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
       <div className="mb-8">

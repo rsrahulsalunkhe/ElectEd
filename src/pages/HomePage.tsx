@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { MessageCircle, ArrowRight } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
+import { usePageTitle } from '@/hooks/usePageTitle';
+
 
 const features = [
   {
@@ -88,6 +90,7 @@ function StatCard({ icon, target, suffix, label }: { icon: string; target: numbe
 }
 
 export default function HomePage() {
+  usePageTitle('Home');
   return (
     <div className="min-h-screen bg-slate-50">
       <section className="hero-gradient text-white py-20 px-4">

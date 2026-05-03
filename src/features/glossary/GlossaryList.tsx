@@ -214,17 +214,19 @@ export default function GlossaryList() {
       </section>
 
       <section className="bg-white border border-slate-200 rounded-2xl p-4 md:p-5">
-        <div className="relative mb-4">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-          <label htmlFor="glossary-search" className="sr-only">Search any election term</label>
-          <input
-            id="glossary-search"
-            type="search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search any election term..."
-            className="input-base pl-10"
-          />
+        <div role="search" aria-label="Glossary term search">
+          <div className="relative mb-4">
+            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <label htmlFor="glossary-search" className="sr-only">Search any election term</label>
+            <input
+              id="glossary-search"
+              type="search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search any election term..."
+              className="input-base pl-10"
+            />
+          </div>
         </div>
 
         <div className="flex flex-wrap gap-1.5 mb-4" role="group" aria-label="Alphabet filter">
