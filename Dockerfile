@@ -1,15 +1,15 @@
 # ── Stage 1: Build ───────────────────────────────────────────────────────────
-FROM node:20-alpine AS builder
+FROM node:24-alpine AS builder
 
 WORKDIR /app
 
 # Install dependencies first (layer-cached unless package.json changes)
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --legacy-peer-deps
 
 # Copy source and build
 COPY . .
-RUN npm run build
+RUN npx vite build
 
 # ── Stage 2: Production (nginx) ───────────────────────────────────────────────
 FROM nginx:alpine AS production
