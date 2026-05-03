@@ -125,13 +125,18 @@ export default function CompareTable() {
       if (prev.length >= 3) return prev;
       const next = [...prev, id];
       const countryName = COUNTRY_SYSTEMS.find((c) => c.id === id)?.country ?? id;
-      trackEvent('country_compared', { countries: next.map((cid) => COUNTRY_SYSTEMS.find((c) => c.id === cid)?.country ?? cid), added: countryName });
+      trackEvent('country_compared', {
+        countries: next.map((cid) => COUNTRY_SYSTEMS.find((c) => c.id === cid)?.country ?? cid),
+        added: countryName,
+      });
       return next;
     });
   };
 
   const askAi = () => {
-    setInputDraft('Which election system is most fair and why? Compare FPTP with Proportional Representation');
+    setInputDraft(
+      'Which election system is most fair and why? Compare FPTP with Proportional Representation'
+    );
     navigate('/chat');
   };
 
@@ -170,13 +175,29 @@ export default function CompareTable() {
                 </button>
               </div>
               <div className="text-sm text-slate-700 space-y-1.5">
-                <p><strong>System:</strong> {country.system}</p>
-                <p><strong>Legislature:</strong> {country.legislature}</p>
-                <p><strong>Voting Age:</strong> {country.votingAge}</p>
-                <p><strong>Frequency:</strong> {country.frequency}</p>
-                <p><strong>Unique Feature:</strong> {country.uniqueFeature}</p>
-                <p><strong>Voter Turnout:</strong> {country.turnout}</p>
-                {country.constituencies && <p><strong>Total Constituencies:</strong> {country.constituencies}</p>}
+                <p>
+                  <strong>System:</strong> {country.system}
+                </p>
+                <p>
+                  <strong>Legislature:</strong> {country.legislature}
+                </p>
+                <p>
+                  <strong>Voting Age:</strong> {country.votingAge}
+                </p>
+                <p>
+                  <strong>Frequency:</strong> {country.frequency}
+                </p>
+                <p>
+                  <strong>Unique Feature:</strong> {country.uniqueFeature}
+                </p>
+                <p>
+                  <strong>Voter Turnout:</strong> {country.turnout}
+                </p>
+                {country.constituencies && (
+                  <p>
+                    <strong>Total Constituencies:</strong> {country.constituencies}
+                  </p>
+                )}
               </div>
             </article>
           );
@@ -185,9 +206,13 @@ export default function CompareTable() {
 
       <section className="bg-white border border-slate-200 rounded-2xl p-5">
         <h3 className="text-xl font-bold text-navy mb-2">Comparison Table</h3>
-        <p className="text-sm text-slate-500 mb-4">Select 2-3 countries above to compare side by side.</p>
+        <p className="text-sm text-slate-500 mb-4">
+          Select 2-3 countries above to compare side by side.
+        </p>
         {selectedCountries.length < 2 ? (
-          <p className="text-sm text-slate-500">Choose at least two countries to enable comparison.</p>
+          <p className="text-sm text-slate-500">
+            Choose at least two countries to enable comparison.
+          </p>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full min-w-[700px] text-sm border border-slate-200 rounded-lg overflow-hidden">
@@ -207,7 +232,10 @@ export default function CompareTable() {
                   { label: 'Voting Method', get: (country: CountrySystem) => country.votingMethod },
                   { label: 'Frequency', get: (country: CountrySystem) => country.frequency },
                   { label: 'Turnout', get: (country: CountrySystem) => country.turnout },
-                  { label: 'Special Features', get: (country: CountrySystem) => country.uniqueFeature },
+                  {
+                    label: 'Special Features',
+                    get: (country: CountrySystem) => country.uniqueFeature,
+                  },
                   { label: 'Pros', get: (country: CountrySystem) => country.pros },
                   { label: 'Cons', get: (country: CountrySystem) => country.cons },
                 ].map((row) => (
@@ -231,18 +259,30 @@ export default function CompareTable() {
         <div className="grid md:grid-cols-3 gap-4 text-sm">
           <div className="border border-slate-200 rounded-xl p-4">
             <h4 className="font-bold text-navy mb-2">FPTP</h4>
-            <p><strong>Pros:</strong> Simple, strong majority governments</p>
-            <p className="mt-1"><strong>Cons:</strong> Votes can be wasted, minority parties underrepresented</p>
+            <p>
+              <strong>Pros:</strong> Simple, strong majority governments
+            </p>
+            <p className="mt-1">
+              <strong>Cons:</strong> Votes can be wasted, minority parties underrepresented
+            </p>
           </div>
           <div className="border border-slate-200 rounded-xl p-4">
             <h4 className="font-bold text-navy mb-2">Proportional Representation</h4>
-            <p><strong>Pros:</strong> Fair representation, fewer wasted votes</p>
-            <p className="mt-1"><strong>Cons:</strong> Coalition governments, complex calculation</p>
+            <p>
+              <strong>Pros:</strong> Fair representation, fewer wasted votes
+            </p>
+            <p className="mt-1">
+              <strong>Cons:</strong> Coalition governments, complex calculation
+            </p>
           </div>
           <div className="border border-slate-200 rounded-xl p-4">
             <h4 className="font-bold text-navy mb-2">Mixed System</h4>
-            <p><strong>Pros:</strong> Balance of both systems</p>
-            <p className="mt-1"><strong>Cons:</strong> Complex to understand</p>
+            <p>
+              <strong>Pros:</strong> Balance of both systems
+            </p>
+            <p className="mt-1">
+              <strong>Cons:</strong> Complex to understand
+            </p>
           </div>
         </div>
       </section>

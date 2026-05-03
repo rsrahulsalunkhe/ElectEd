@@ -158,7 +158,10 @@ function buildCountryTimeline(country: Country): TimelinePhase[] {
         { text: 'Winning candidates declared', type: 'official' },
       ],
       involved: [resultsAuthority, 'Counting agents', 'Candidates', 'Media observers'],
-      rules: ['Strong-room and seal verification', 'Transparent counting with authorized observers'],
+      rules: [
+        'Strong-room and seal verification',
+        'Transparent counting with authorized observers',
+      ],
       learnMoreQuestion: `How are votes counted and verified in ${country}?`,
     },
     {
@@ -169,7 +172,8 @@ function buildCountryTimeline(country: Country): TimelinePhase[] {
       durationLabel: 'Day 35-45',
       dayStart: 35,
       dayEnd: 45,
-      description: 'Official notifications are issued and government formation follows constitutional rules.',
+      description:
+        'Official notifications are issued and government formation follows constitutional rules.',
       activities: [
         { text: 'Official results gazette notified', type: 'official' },
         { text: 'Winning party or coalition invited to form government', type: 'official' },
@@ -177,7 +181,10 @@ function buildCountryTimeline(country: Country): TimelinePhase[] {
         { text: 'New government assumes office', type: 'official' },
       ],
       involved: [authority, 'Winning party/coalition', 'Head of state', 'Cabinet members'],
-      rules: ['Constitutional government formation process', 'Official certification before office assumption'],
+      rules: [
+        'Constitutional government formation process',
+        'Official certification before office assumption',
+      ],
       learnMoreQuestion: `What happens after results are declared and how is government formed in ${country}?`,
     },
   ];
@@ -253,9 +260,7 @@ export default function TimelineView() {
         >
           <div className="flex items-start justify-between gap-3">
             <div>
-              <p className="text-xs font-semibold text-orange mb-1">
-                Phase {phase.phaseNumber}
-              </p>
+              <p className="text-xs font-semibold text-orange mb-1">Phase {phase.phaseNumber}</p>
               <h3 className="text-lg font-bold text-navy flex items-center gap-2">
                 <span aria-hidden="true">{phase.icon}</span>
                 {phase.name}
@@ -291,12 +296,17 @@ export default function TimelineView() {
               <ul className="space-y-2">
                 {filteredActivities.map((activity) => (
                   <li key={activity.text} className="text-sm text-slate-700 flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-orange mt-2 shrink-0" aria-hidden="true" />
+                    <span
+                      className="w-1.5 h-1.5 rounded-full bg-orange mt-2 shrink-0"
+                      aria-hidden="true"
+                    />
                     {activity.text}
                   </li>
                 ))}
                 {filteredActivities.length === 0 && (
-                  <li className="text-sm text-slate-500">No activities match this filter for this phase.</li>
+                  <li className="text-sm text-slate-500">
+                    No activities match this filter for this phase.
+                  </li>
                 )}
               </ul>
             </div>
@@ -406,8 +416,17 @@ export default function TimelineView() {
             <span>Timeline Progress</span>
             <span>{Math.round(progress)}%</span>
           </div>
-          <div className="h-3 bg-slate-100 rounded-full overflow-hidden" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(progress)}>
-            <div className="h-full bg-gradient-to-r from-navy to-orange transition-all duration-300" style={{ width: `${progress}%` }} />
+          <div
+            className="h-3 bg-slate-100 rounded-full overflow-hidden"
+            role="progressbar"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={Math.round(progress)}
+          >
+            <div
+              className="h-full bg-gradient-to-r from-navy to-orange transition-all duration-300"
+              style={{ width: `${progress}%` }}
+            />
           </div>
         </div>
       </section>
@@ -415,8 +434,15 @@ export default function TimelineView() {
       <section>
         <h2 className="text-lg font-bold text-navy mb-3">Timeline Overview</h2>
 
-        <div className="hidden md:block overflow-x-auto pb-3" aria-label="Horizontal election timeline">
-          <div className="flex gap-4 min-w-max px-1" role="list" aria-label="Election timeline phases">
+        <div
+          className="hidden md:block overflow-x-auto pb-3"
+          aria-label="Horizontal election timeline"
+        >
+          <div
+            className="flex gap-4 min-w-max px-1"
+            role="list"
+            aria-label="Election timeline phases"
+          >
             {phases.map((phase) => renderPhaseCard(phase, false))}
           </div>
         </div>
@@ -453,7 +479,9 @@ export default function TimelineView() {
 
         <div className="mt-4">
           {!phaseDateRanges && (
-            <p className="text-sm text-slate-500">Select an election date to generate the checklist.</p>
+            <p className="text-sm text-slate-500">
+              Select an election date to generate the checklist.
+            </p>
           )}
 
           {phaseDateRanges && (
@@ -468,8 +496,14 @@ export default function TimelineView() {
                     : `${formatDate(range.start)} to ${formatDate(range.end)}`;
 
                 return (
-                  <li key={phase.id} className="flex items-start gap-3 bg-slate-50 border border-slate-200 rounded-xl p-3">
-                    <span className="w-4 h-4 mt-0.5 border border-slate-400 rounded-sm bg-white" aria-hidden="true" />
+                  <li
+                    key={phase.id}
+                    className="flex items-start gap-3 bg-slate-50 border border-slate-200 rounded-xl p-3"
+                  >
+                    <span
+                      className="w-4 h-4 mt-0.5 border border-slate-400 rounded-sm bg-white"
+                      aria-hidden="true"
+                    />
                     <div>
                       <p className="text-sm font-semibold text-slate-800">
                         Phase {phase.phaseNumber}: {phase.name}

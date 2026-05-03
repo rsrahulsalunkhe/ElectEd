@@ -32,12 +32,7 @@ export default function RootLayout() {
       <SkipNav />
 
       {/* WCAG: Screen reader route announcer */}
-      <div
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
-        className="sr-only"
-      >
+      <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
         {announceText}
       </div>
 
@@ -46,11 +41,7 @@ export default function RootLayout() {
 
       <Header />
 
-      <main
-        id="main-content"
-        className="flex-1 outline-none"
-        tabIndex={-1}
-      >
+      <main id="main-content" className="flex-1 outline-none" tabIndex={-1}>
         <Outlet />
       </main>
 

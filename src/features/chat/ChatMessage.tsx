@@ -68,7 +68,11 @@ export default function ChatMessage({ message }: Props) {
               aria-label="Copy assistant message"
               type="button"
             >
-              {copied ? <Check className="w-3.5 h-3.5" aria-hidden="true" /> : <Copy className="w-3.5 h-3.5" aria-hidden="true" />}
+              {copied ? (
+                <Check className="w-3.5 h-3.5" aria-hidden="true" />
+              ) : (
+                <Copy className="w-3.5 h-3.5" aria-hidden="true" />
+              )}
               {copied ? 'Copied' : 'Copy'}
             </button>
           )}

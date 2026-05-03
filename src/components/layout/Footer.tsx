@@ -43,7 +43,8 @@ export default function Footer() {
 
           <div>
             <p className="text-sm text-slate-400">
-              ElectEd is a non-partisan educational platform. We do not support any political party or candidate.
+              ElectEd is a non-partisan educational platform. We do not support any political party
+              or candidate.
             </p>
             <p className="text-sm text-slate-400 mt-2">Data source: Election Commission of India</p>
           </div>

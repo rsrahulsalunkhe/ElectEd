@@ -1,73 +1,70 @@
-# React + TypeScript + Vite
+# ElectEd
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ElectEd is a comprehensive, interactive educational platform designed to educate citizens about the Indian electoral process. By combining engaging quizzes, an AI-powered chat assistant, timelines, and a detailed glossary, ElectEd makes learning about elections fun, accessible, and informative.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **AI Chat Assistant**: Ask questions about the electoral process, voting rights, and political systems, and get instant, accurate answers.
+- **Interactive Quizzes**: Test your knowledge with categorised quizzes (Beginner, Intermediate, Advanced) and learn through detailed explanations for each answer.
+- **Election Timeline**: Explore the rich history of Indian elections through an interactive, visual timeline.
+- **Voter Registration Steps**: Follow a simple, step-by-step guide to registering to vote, ensuring you're ready for election day.
+- **Glossary**: Access a comprehensive dictionary of election-related terminology.
+- **Compare Candidates/Parties**: Evaluate different political entities side-by-side to make informed voting decisions.
+- **Multi-language Support (i18n)**: Accessible in multiple Indian languages (English, Hindi, Marathi, Gujarati, Bengali, Tamil, Telugu).
+- **Progressive Web App (PWA)**: Install the application on your device for offline access and a native app-like experience.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React 19, TypeScript, Vite
+- **Styling**: Tailwind CSS, Radix UI components
+- **State Management**: Zustand
+- **Backend/Services**: Firebase (Auth, Firestore)
+- **Testing**: Vitest, React Testing Library, Playwright (E2E)
+- **Code Quality**: ESLint, Prettier, TypeScript
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js (v18+)
+- npm or yarn
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up environment variables:
+   Copy `.env.example` to `.env.local` and fill in your Firebase credentials.
+
+### Running Locally
+
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The application will be available at `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Testing
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Run unit and integration tests:
+
+```bash
+npm run test
 ```
+
+Run end-to-end tests:
+
+```bash
+npm run test:e2e
+```
+
+## Contributing
+
+We welcome contributions! Please follow our coding standards and ensure all tests pass before submitting a pull request.
+
+## License
+
+This project is licensed under the MIT License.

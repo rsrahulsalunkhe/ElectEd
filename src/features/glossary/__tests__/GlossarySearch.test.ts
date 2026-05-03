@@ -15,7 +15,11 @@ const SAMPLE_ENTRIES: GlossaryEntry[] = [
   { term: 'Turnout', definition: 'Percentage of eligible voters who cast their vote.' },
 ];
 
-function filterGlossary(entries: GlossaryEntry[], search: string, letter: string | 'ALL'): GlossaryEntry[] {
+function filterGlossary(
+  entries: GlossaryEntry[],
+  search: string,
+  letter: string | 'ALL'
+): GlossaryEntry[] {
   const q = search.trim().toLowerCase();
   return entries
     .filter((entry) => {

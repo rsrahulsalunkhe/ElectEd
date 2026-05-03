@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import ChatMessage from '@/features/chat/ChatMessage';
 
 // ── A minimal QuizCard for isolated testing ───────────────────────────────────
@@ -15,6 +14,7 @@ interface QuizCardProps {
 }
 
 function QuizCard({ question, options, correctIndex, onAnswer }: QuizCardProps) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [selected, setSelected] = (window as any).__testState ?? [null, () => {}];
   const hasAnswered = selected !== null;
 
@@ -41,8 +41,8 @@ function QuizCard({ question, options, correctIndex, onAnswer }: QuizCardProps) 
                 ? isCorrect
                   ? 'green'
                   : isSelected
-                  ? 'red'
-                  : undefined
+                    ? 'red'
+                    : undefined
                 : undefined,
             }}
           >
