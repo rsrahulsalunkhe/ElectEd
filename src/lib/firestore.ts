@@ -47,7 +47,11 @@ async function ensureProgressDoc(uid: string) {
 
 // ─── Quiz ─────────────────────────────────────────────────────────
 
-export async function saveQuizScore(uid: string, category: string, score: number): Promise<void> {
+export async function saveQuizScore(
+  uid: string,
+  category: string,
+  score: number
+): Promise<void> {
   const ref = await ensureProgressDoc(uid);
   await updateDoc(ref, {
     quizScores: arrayUnion({ category, score, date: new Date().toISOString() }),

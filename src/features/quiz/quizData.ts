@@ -116,7 +116,8 @@ export const BEGINNER_QUESTIONS: QuizQuestionData[] = [
     prompt: 'What is the term duration of Lok Sabha?',
     options: ['4 years', '5 years', '6 years', '3 years'],
     correctIndex: 1,
-    explanation: 'The Lok Sabha has a term of 5 years unless dissolved earlier by the President.',
+    explanation:
+      'The Lok Sabha has a term of 5 years unless dissolved earlier by the President.',
   },
   {
     id: 'b6',
@@ -206,7 +207,7 @@ export const INTERMEDIATE_QUESTIONS: QuizQuestionData[] = [
       'Electronic Public ID Card',
     ],
     correctIndex: 1,
-    explanation: 'EPIC is the official voter identity card issued to registered electors.',
+    explanation: "EPIC is the official voter identity card issued to registered electors.",
   },
   {
     id: 'i3',
@@ -219,7 +220,8 @@ export const INTERMEDIATE_QUESTIONS: QuizQuestionData[] = [
       'List of political parties only',
     ],
     correctIndex: 1,
-    explanation: 'The electoral roll is the official list of eligible voters in a constituency.',
+    explanation:
+      'The electoral roll is the official list of eligible voters in a constituency.',
   },
   {
     id: 'i4',
@@ -227,7 +229,8 @@ export const INTERMEDIATE_QUESTIONS: QuizQuestionData[] = [
     prompt: 'Who verifies your name and ID at the polling booth?',
     options: ['Presiding Judge', 'Polling Officer', 'Police Officer', 'Party Worker'],
     correctIndex: 1,
-    explanation: 'Polling officers verify voter identity and electoral roll details before voting.',
+    explanation:
+      'Polling officers verify voter identity and electoral roll details before voting.',
   },
   {
     id: 'i5',
@@ -254,7 +257,8 @@ export const INTERMEDIATE_QUESTIONS: QuizQuestionData[] = [
       'Approve party manifestos',
     ],
     correctIndex: 1,
-    explanation: 'Observers monitor election conduct and report violations to ensure fairness.',
+    explanation:
+      'Observers monitor election conduct and report violations to ensure fairness.',
   },
   {
     id: 'i7',
@@ -424,7 +428,8 @@ export const ADVANCED_QUESTIONS: QuizQuestionData[] = [
       'Voters cast no ballots directly',
     ],
     correctIndex: 1,
-    explanation: 'PR systems aim to align seat share more closely with vote share.',
+    explanation:
+      'PR systems aim to align seat share more closely with vote share.',
   },
   {
     id: 'a9',

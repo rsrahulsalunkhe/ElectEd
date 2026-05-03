@@ -14,7 +14,8 @@ test.describe('Quiz flow', () => {
     await page.getByRole('button', { name: /start quiz/i }).first().click();
     // Should now show a question heading
     await expect(page.locator('h2').first()).toBeVisible();
-    // At least the answer group should be present
+    // Should show 4 answer options
+    const options = page.getByRole('button').filter({ hasText: /^[A-D]\./  });
     // At least the answer group should be present
     await expect(page.getByRole('group', { name: /answer options/i })).toBeVisible();
   });

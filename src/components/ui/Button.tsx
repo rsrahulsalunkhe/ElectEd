@@ -14,12 +14,16 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantClasses: Record<Variant, string> = {
-  primary: 'bg-[#1a2f5e] text-white hover:bg-[#162850] focus-visible:ring-[#1a2f5e] shadow-sm',
+  primary:
+    'bg-[#1a2f5e] text-white hover:bg-[#162850] focus-visible:ring-[#1a2f5e] shadow-sm',
   secondary:
     'border-2 border-[#1a2f5e] text-[#1a2f5e] hover:bg-[#1a2f5e] hover:text-white focus-visible:ring-[#1a2f5e]',
-  accent: 'bg-[#ff6b00] text-white hover:bg-[#e66000] focus-visible:ring-[#ff6b00] shadow-sm',
-  ghost: 'text-[#1a2f5e] hover:bg-[#eef1f8] focus-visible:ring-[#1a2f5e]',
-  danger: 'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500 shadow-sm',
+  accent:
+    'bg-[#ff6b00] text-white hover:bg-[#e66000] focus-visible:ring-[#ff6b00] shadow-sm',
+  ghost:
+    'text-[#1a2f5e] hover:bg-[#eef1f8] focus-visible:ring-[#1a2f5e]',
+  danger:
+    'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500 shadow-sm',
 };
 
 const sizeClasses: Record<Size, string> = {
@@ -30,17 +34,7 @@ const sizeClasses: Record<Size, string> = {
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    {
-      variant = 'primary',
-      size = 'md',
-      loading,
-      leftIcon,
-      rightIcon,
-      className,
-      children,
-      disabled,
-      ...props
-    },
+    { variant = 'primary', size = 'md', loading, leftIcon, rightIcon, className, children, disabled, ...props },
     ref
   ) => {
     return (

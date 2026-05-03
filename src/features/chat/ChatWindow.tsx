@@ -75,9 +75,7 @@ export default function ChatWindow() {
           <div className="bg-slate-100 border border-slate-200 rounded-2xl flex flex-col min-h-[70vh]">
             <header className="px-4 py-3 border-b border-slate-200 bg-white rounded-t-2xl">
               <h1 className="text-lg font-bold text-navy">AI Election Assistant</h1>
-              <p className="text-xs text-slate-500">
-                Neutral, educational, and easy to understand election guidance.
-              </p>
+              <p className="text-xs text-slate-500">Neutral, educational, and easy to understand election guidance.</p>
             </header>
 
             <div
@@ -91,13 +89,12 @@ export default function ChatWindow() {
                 <ChatMessage key={message.id} message={message} />
               ))}
 
-              {isLoading && <TypingIndicator />}
+              {isLoading && (
+                <TypingIndicator />
+              )}
 
               {error && (
-                <p
-                  className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-xl px-3 py-2"
-                  role="alert"
-                >
+                <p className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-xl px-3 py-2" role="alert">
                   {error}
                 </p>
               )}
@@ -152,11 +149,7 @@ function CategorySection({
           <span aria-hidden="true">{icon}</span>
           {title}
         </span>
-        {expanded ? (
-          <ChevronUp className="w-4 h-4 text-slate-500" />
-        ) : (
-          <ChevronDown className="w-4 h-4 text-slate-500" />
-        )}
+        {expanded ? <ChevronUp className="w-4 h-4 text-slate-500" /> : <ChevronDown className="w-4 h-4 text-slate-500" />}
       </button>
 
       {expanded && (

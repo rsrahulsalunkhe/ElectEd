@@ -173,10 +173,10 @@ export default function QuizContainer() {
       selectedCategory === 'beginner'
         ? 'Election Basics'
         : selectedCategory === 'intermediate'
-          ? 'Voting Process'
-          : selectedCategory === 'advanced'
-            ? 'Electoral Systems'
-            : 'Mixed election topics';
+        ? 'Voting Process'
+        : selectedCategory === 'advanced'
+        ? 'Electoral Systems'
+        : 'Mixed election topics';
 
     await sendMessage(`Teach me more about ${categoryText} with practical examples.`);
     navigate('/chat');
@@ -186,14 +186,9 @@ export default function QuizContainer() {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {QUIZ_CATEGORIES.map((category) => (
-          <article
-            key={category.id}
-            className="bg-white border border-slate-200 rounded-2xl p-5 shadow-card"
-          >
+          <article key={category.id} className="bg-white border border-slate-200 rounded-2xl p-5 shadow-card">
             <div className="flex items-start justify-between">
-              <p className="text-2xl" aria-hidden="true">
-                {category.icon}
-              </p>
+              <p className="text-2xl" aria-hidden="true">{category.icon}</p>
               <span className="text-xs font-semibold px-2 py-1 rounded-full bg-slate-100 text-slate-600">
                 {category.difficultyBadge}
               </span>
@@ -221,40 +216,29 @@ export default function QuizContainer() {
     return (
       <div className="bg-white border border-slate-200 rounded-2xl p-6">
         <h2 className="text-3xl font-bold text-navy mb-2">Quiz Results</h2>
-        <p className="text-lg text-slate-700 mb-1" aria-live="assertive" aria-atomic="true">
+        <p
+          className="text-lg text-slate-700 mb-1"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
           Score: <strong>{score}</strong> out of <strong>{questions.length}</strong> correct
         </p>
         <p className="text-2xl font-bold text-orange mb-4">{performanceMessage}</p>
 
         <div className="flex flex-wrap gap-2">
-          <button
-            onClick={() => setShowReview((v) => !v)}
-            className="px-4 py-2 rounded-lg border border-slate-300 text-sm font-semibold"
-          >
+          <button onClick={() => setShowReview((v) => !v)} className="px-4 py-2 rounded-lg border border-slate-300 text-sm font-semibold">
             {showReview ? 'Hide Review' : 'Review Answers'}
           </button>
-          <button
-            onClick={() => void handleShareScore()}
-            className="px-4 py-2 rounded-lg border border-slate-300 text-sm font-semibold"
-          >
+          <button onClick={() => void handleShareScore()} className="px-4 py-2 rounded-lg border border-slate-300 text-sm font-semibold">
             Share Score
           </button>
-          <button
-            onClick={handleRetakeQuiz}
-            className="px-4 py-2 rounded-lg bg-navy text-white text-sm font-semibold"
-          >
+          <button onClick={handleRetakeQuiz} className="px-4 py-2 rounded-lg bg-navy text-white text-sm font-semibold">
             Retake Quiz
           </button>
-          <button
-            onClick={() => void handleLearnMore()}
-            className="px-4 py-2 rounded-lg bg-orange text-white text-sm font-semibold"
-          >
+          <button onClick={() => void handleLearnMore()} className="px-4 py-2 rounded-lg bg-orange text-white text-sm font-semibold">
             Learn More
           </button>
-          <button
-            onClick={handleReturnToLanding}
-            className="px-4 py-2 rounded-lg border border-slate-300 text-sm font-semibold"
-          >
+          <button onClick={handleReturnToLanding} className="px-4 py-2 rounded-lg border border-slate-300 text-sm font-semibold">
             Back to Categories
           </button>
         </div>
@@ -267,16 +251,10 @@ export default function QuizContainer() {
               const selectedText =
                 answer?.selectedIndex === null || answer?.selectedIndex === undefined
                   ? 'No answer selected'
-                  : (question.options[answer.selectedIndex] ?? 'Unknown');
+                  : question.options[answer.selectedIndex] ?? 'Unknown';
               const correctText = question.options[question.correctIndex] ?? '';
               return (
-                <div
-                  key={question.id}
-                  className={cn(
-                    'p-4 rounded-xl border',
-                    isCorrect ? 'border-green-200 bg-green-50' : 'border-red-200 bg-red-50'
-                  )}
-                >
+                <div key={question.id} className={cn('p-4 rounded-xl border', isCorrect ? 'border-green-200 bg-green-50' : 'border-red-200 bg-red-50')}>
                   <p className="text-sm font-semibold text-navy">
                     Q{index + 1}. {question.prompt}
                   </p>
@@ -298,20 +276,11 @@ export default function QuizContainer() {
     <div className="bg-white border border-slate-200 rounded-2xl p-6">
       <div className="mb-4">
         <div className="flex items-center justify-between text-sm font-medium text-slate-600 mb-2">
-          <span>
-            Question {currentQuestionIndex + 1} of {questions.length}
-          </span>
-          {isTimedMode && (
-            <span className={cn('font-bold', secondsLeft <= 8 ? 'text-red-600' : 'text-navy')}>
-              ⏱ {secondsLeft}s
-            </span>
-          )}
+          <span>Question {currentQuestionIndex + 1} of {questions.length}</span>
+          {isTimedMode && <span className={cn('font-bold', secondsLeft <= 8 ? 'text-red-600' : 'text-navy')}>⏱ {secondsLeft}s</span>}
         </div>
         <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-gradient-to-r from-navy to-orange transition-all duration-300"
-            style={{ width: `${progressPercent}%` }}
-          />
+          <div className="h-full bg-gradient-to-r from-navy to-orange transition-all duration-300" style={{ width: `${progressPercent}%` }} />
         </div>
       </div>
 
@@ -326,10 +295,10 @@ export default function QuizContainer() {
           const optionStyle = !hasAnswered
             ? 'border-slate-200 hover:border-navy hover:bg-slate-50'
             : isCorrect
-              ? 'border-green-400 bg-green-50'
-              : answeredWrongSelection
-                ? 'border-red-400 bg-red-50'
-                : 'border-slate-200 opacity-70';
+            ? 'border-green-400 bg-green-50'
+            : answeredWrongSelection
+            ? 'border-red-400 bg-red-50'
+            : 'border-slate-200 opacity-70';
 
           return (
             <button
@@ -342,15 +311,16 @@ export default function QuizContainer() {
                   ? isCorrect
                     ? ' — Correct answer'
                     : selected
-                      ? ' — Incorrect'
-                      : ''
+                    ? ' — Incorrect'
+                    : ''
                   : ''
               }`}
-              className={cn('w-full text-left p-4 rounded-xl border-2 transition-all', optionStyle)}
+              className={cn(
+                'w-full text-left p-4 rounded-xl border-2 transition-all',
+                optionStyle
+              )}
             >
-              <span className="font-semibold mr-2" aria-hidden="true">
-                {String.fromCharCode(65 + index)}.
-              </span>
+              <span className="font-semibold mr-2" aria-hidden="true">{String.fromCharCode(65 + index)}.</span>
               {option}
             </button>
           );

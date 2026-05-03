@@ -18,7 +18,10 @@ Keep responses clear, simple and easy to understand.
 Use bullet points and numbered lists for step-by-step info.
 End responses with a relevant follow-up question to encourage learning.`;
 
-const AI_API_KEY = import.meta.env.VITE_ANTHROPIC_API_KEY ?? import.meta.env.VITE_AI_API_KEY ?? '';
+const AI_API_KEY =
+  import.meta.env.VITE_ANTHROPIC_API_KEY ??
+  import.meta.env.VITE_AI_API_KEY ??
+  '';
 
 type AnthropicMessage = {
   role: 'user' | 'assistant';

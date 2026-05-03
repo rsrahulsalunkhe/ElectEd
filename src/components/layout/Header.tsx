@@ -74,11 +74,7 @@ export default function Header() {
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
             >
-              {mobileOpen ? (
-                <X className="w-5 h-5" aria-hidden="true" />
-              ) : (
-                <Menu className="w-5 h-5" aria-hidden="true" />
-              )}
+              {mobileOpen ? <X className="w-5 h-5" aria-hidden="true" /> : <Menu className="w-5 h-5" aria-hidden="true" />}
             </button>
           </div>
         </div>

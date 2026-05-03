@@ -8,7 +8,7 @@ const WELCOME_MESSAGE: ChatMessage = {
   id: 'welcome',
   role: 'assistant',
   content:
-    'Hello. I am ElectEd, your non-partisan election education assistant. Ask me about voting, election timelines, registration, systems, and results. What would you like to learn first?',
+    "Hello. I am ElectEd, your non-partisan election education assistant. Ask me about voting, election timelines, registration, systems, and results. What would you like to learn first?",
   timestamp: Date.now(),
 };
 

@@ -14,11 +14,7 @@ const ComparePage = lazy(() => import('@/pages/ComparePage'));
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
 
 const PageLoader = () => (
-  <div
-    className="flex items-center justify-center min-h-[60vh]"
-    role="status"
-    aria-label="Loading page"
-  >
+  <div className="flex items-center justify-center min-h-[60vh]" role="status" aria-label="Loading page">
     <Spinner size="lg" />
   </div>
 );

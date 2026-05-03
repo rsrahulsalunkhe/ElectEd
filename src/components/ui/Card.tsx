@@ -9,13 +9,7 @@ interface CardProps {
   onClick?: () => void;
 }
 
-export default function Card({
-  children,
-  className,
-  hover = false,
-  as: Tag = 'div',
-  onClick,
-}: CardProps) {
+export default function Card({ children, className, hover = false, as: Tag = 'div', onClick }: CardProps) {
   return (
     <Tag
       onClick={onClick}
@@ -41,9 +35,5 @@ export function CardBody({ children, className }: { children: ReactNode; classNa
 }
 
 export function CardFooter({ children, className }: { children: ReactNode; className?: string }) {
-  return (
-    <div className={cn('px-6 py-4 bg-slate-50 border-t border-slate-100', className)}>
-      {children}
-    </div>
-  );
+  return <div className={cn('px-6 py-4 bg-slate-50 border-t border-slate-100', className)}>{children}</div>;
 }

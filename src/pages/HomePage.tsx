@@ -5,6 +5,7 @@ import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import { usePageTitle } from '@/hooks/usePageTitle';
 
+
 const features = [
   {
     icon: '🤖',
@@ -78,24 +79,11 @@ function useCountUp(target: number) {
   return { value, ref };
 }
 
-function StatCard({
-  icon,
-  target,
-  suffix,
-  label,
-}: {
-  icon: string;
-  target: number;
-  suffix: string;
-  label: string;
-}) {
+function StatCard({ icon, target, suffix, label }: { icon: string; target: number; suffix: string; label: string }) {
   const { value, ref } = useCountUp(target);
   return (
     <div ref={ref} className="text-center">
-      <p className="text-2xl font-bold text-navy">
-        {icon} {value}
-        {suffix}
-      </p>
+      <p className="text-2xl font-bold text-navy">{icon} {value}{suffix}</p>
       <p className="text-sm text-slate-500 mt-1">{label}</p>
     </div>
   );
@@ -112,8 +100,7 @@ export default function HomePage() {
               Understand Your Vote. Shape Your Future.
             </h1>
             <p className="text-slate-200 text-lg mt-5 max-w-xl">
-              ElectEd makes learning about elections simple, interactive and engaging for every
-              citizen
+              ElectEd makes learning about elections simple, interactive and engaging for every citizen
             </p>
             <div className="flex flex-wrap gap-3 mt-7">
               <Link to="/chat">
@@ -122,11 +109,7 @@ export default function HomePage() {
                 </Button>
               </Link>
               <Link to="/steps">
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  className="border-white text-white hover:bg-white hover:text-navy"
-                >
+                <Button variant="secondary" size="lg" className="border-white text-white hover:bg-white hover:text-navy">
                   Start Learning
                 </Button>
               </Link>
@@ -135,9 +118,7 @@ export default function HomePage() {
           <div className="bg-white/10 border border-white/20 rounded-3xl p-8 backdrop-blur-sm">
             <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-orange-200/40 to-blue-200/40 flex items-center justify-center text-center">
               <div>
-                <p className="text-7xl mb-2" aria-hidden="true">
-                  🧑‍💼🗳️
-                </p>
+                <p className="text-7xl mb-2" aria-hidden="true">🧑‍💼🗳️</p>
                 <p className="text-slate-100 font-semibold">Indian voter with ballot</p>
               </div>
             </div>
@@ -156,16 +137,12 @@ export default function HomePage() {
 
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-navy text-center mb-10">
-            Explore ElectEd Features
-          </h2>
+          <h2 className="text-3xl font-bold text-navy text-center mb-10">Explore ElectEd Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {features.map((feature) => (
               <Link key={feature.path} to={feature.path} className="group">
                 <Card hover className="h-full p-6">
-                  <p className="text-3xl mb-3" aria-hidden="true">
-                    {feature.icon}
-                  </p>
+                  <p className="text-3xl mb-3" aria-hidden="true">{feature.icon}</p>
                   <h3 className="text-lg font-bold text-navy mb-2">{feature.title}</h3>
                   <p className="text-sm text-slate-600 leading-relaxed">{feature.desc}</p>
                   <p className="text-sm font-semibold text-orange mt-4 inline-flex items-center gap-1">
@@ -212,6 +189,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
     </div>
   );
 }
